@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Plexensus</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='plexensus.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <script src="{{url_for('static', filename='helloworld.js')}}"></script>
+
+    <div class="poster">
+        <img src="https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_SX300.jpg" alt="name">
+    </div>
+
+    <div class=ControlPanel>
+        <div class="year">
+            <h1>2005</h1>
+        </div>
+        <div class="name">
+            <h1>Star Wars: Episode III - Revenge of the Sith</h1>
+        </div>
+
+        <div class="Buttons">
+            <div class="ControlColumn">
+                <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+            </div>
+            <div class="ControlColumn">
+                <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+            </div>
+            <div class="ControlColumn">
+                <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+            </div>
+        </div>
+
+        <div class="ModalOverlay">
+            <!-- Currently visibility is set to hidden in css-->
+        </div>
+        <div class="alert">
+            <!-- Currently visibility is set to hidden in css-->
+            <h1>Alert!</h1>
+            <div class="alertmsg">
+                <p>This is a sample alert that will be generated when the user attempts to refresh or when the user has a match. Thankyou</p>
+            </div>
+            <div class="Buttons">
+                <div class="ControlColumn">
+                    <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+                </div>
+                <div class="ControlColumn">
+                    <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+                </div>
+                <div class="ControlColumn">
+                    <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

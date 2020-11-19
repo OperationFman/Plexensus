@@ -1,0 +1,126 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    /*Size and Position */
+    overflow: hidden;
+    /* Colors and Design */
+    background-image: linear-gradient(to right, rgb(249, 191, 19), rgb(204, 125, 19));
+}
+
+.poster img {
+    /*Size and Position */
+    margin: 10% 0% 0% 15%;
+    width: 70%;
+    /* Colors and Design */
+    border-radius: 50px;
+}
+
+.ControlPanel {
+    /*Size and Position */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    /* Colors and Design */
+    background-color: #212121;
+    border-top-left-radius: 250px;
+    border-top-right-radius: 250px;
+}
+
+.year {
+    /*Size and Position */
+    padding: 5% 10% 0% 10%;
+    text-align: center;
+    /* Colors and Design */
+    font-size: 2vw;
+    color: #7f7f84;
+}
+
+.name {
+    /*Size and Position */
+    padding: 0% 10% 0% 10%;
+    text-align: center;
+    /* Colors and Design */
+    font-size: 3vw;
+    color: #FFFFFF;
+}
+
+.Buttons {
+    /*Size and Position*/
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 5%;
+}
+
+.MovieYear {
+    /*Size and Position*/
+    position: static;
+    top: 0;
+    left: 0;
+}
+
+.ControlColumn {
+    /* Size and Position*/
+    flex: 50%;
+    padding: 1px;
+    position: relative;
+}
+
+.ModalOverlay {
+    /*Size and Position */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Colors and Design */
+    background-color: black;
+    opacity: 40%;
+    /*Experiment*/
+    visibility: hidden;
+}
+
+.alert {
+    /*Size and Position*/
+    position: fixed;
+    top: 30%;
+    left: 25%;
+    z-index: 1002;
+    overflow: auto;
+    width: 90%;
+    height: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    /* Colors and Design*/
+    background-color: #212121;
+    font-size: 5vw;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 50px;
+    /*Experiment*/
+    visibility: hidden;
+}
+
+.alertmsg {
+    /*Size and Position*/
+    margin: 5% 10%;
+    /* Colors and Design*/
+    border-top: 2px solid #707070;
+}
+
+.alert #refresh {
+    /*use for 'Reset?'*/
+    visibility: hidden
+}
+
+.alert #like,
+#dislike {
+    /*use for 'Match!?'*/
+    xvisibility: hidden
+}
