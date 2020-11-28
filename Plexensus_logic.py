@@ -2,6 +2,7 @@
 your_rapidapi_key = "f1b94bda20mshfc448b87ed832f1p1a9785jsn76236c066d8d"
 DBusername = 'plexuser'
 DBpassword = 'plexpass'
+moviespath = 'C:/Users/frank/Documents/GoogleDrive/Dev/Plexensus/SampleMovies'
 
 import mysql.connector
 
@@ -17,6 +18,7 @@ dbconfig = { 'host': '127.0.0.1',
              'password': DBpassword,
              'database': 'localmoviesdb', }
 
+#Default pass was reset to the old one
 class UseDatabase:
 
     def __init__(self, config: dict) -> None:
