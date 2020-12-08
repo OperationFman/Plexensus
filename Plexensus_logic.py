@@ -18,7 +18,6 @@ dbconfig = { 'host': '127.0.0.1',
              'password': DBpassword,
              'database': 'localmoviesdb', }
 
-#Default pass was reset to the old one
 class UseDatabase:
 
     def __init__(self, config: dict) -> None:
@@ -34,3 +33,16 @@ class UseDatabase:
         self.cursor.close()
         self.conn.close()
     
+
+def fresh_data() -> dict:
+    """grabs a new movie with its name, year and poster from the DB"""
+    print('Hello World')
+
+#Working on this last, trying to get match to set to 1 or 0 
+def update_database_match(moviename: str, moviematch: int) -> None:
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """update moviedata 
+                set moviematch = %s where name = %s
+                values
+                (%s, %s)"""
+        cursor.execute(_SQL, (moviematch, moviename))

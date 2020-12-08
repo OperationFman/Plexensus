@@ -68,5 +68,3 @@ def perform_scan() -> None:
         else:
             insert_movie(i, 1999, "None", 1) #Movie failed the api request so 'nomatch' = true
 
-perform_scan()
-

@@ -9,6 +9,14 @@ body {
     background-image: linear-gradient(to right, rgb(249, 191, 19), rgb(204, 125, 19));
 }
 
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
+}
+
 .poster img {
     /*Size and Position */
     margin: 10% 0% 0% 15%;

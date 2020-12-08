@@ -9,58 +9,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="static/images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-    <script src="{{url_for('static', filename='MVC.js')}}"></script>
+
+    <form> <!--This is so dumb but it works-->
+        {{the_moviename_form | safe}}
+        {{the_movieyear_form | safe}}
+        {{the_movieposter_form | safe}}
+    </form>
+
+    <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+
+    <script src="{{url_for('static', filename='mvc.js')}}"></script>
 
     <div class="poster">
-        <img id="movieposter" src="https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_SX300.jpg" alt="name">
+        {{the_poster | safe}}
     </div>
 
-    <div class=ControlPanel>
-        <div class="year">
-            <h1 id="movieyear">2005</h1>
-        </div>
-        <div class="name">
-            <h1 id="moviename">Star Wars: Episode III - Revenge of the Sith</h1>
-        </div>
+        <div class=ControlPanel>
+            <div class="year">
+                <h1 id="movieyear">{{the_movieyear}}</h1>
+            </div>
+            <div class="name">
+                <h1 id="moviename">{{the_moviename}}</h1>
+            </div>
 
-        <div class="Buttons">
-            <div class="ControlColumn">
-                <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
-            </div>
-            <div class="ControlColumn">
-                <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
-            </div>
-            <div class="ControlColumn">
-                <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
-            </div>
-        </div>
-
-        <div class="ModalOverlay">
-            <!-- Currently visibility is set to hidden in css-->
-        </div>
-        <div class="alert">
-            <!-- Currently visibility is set to hidden in css-->
-            <h1>Alert!</h1>
-            <div class="alertmsg">
-                <p>This is a sample alert that will be generated when the user attempts to refresh or when the user has a match. Thankyou</p>
-            </div>
             <div class="Buttons">
                 <div class="ControlColumn">
-                    <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+                    <button type="button" name="dislike-button">
+                        <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+                    </button>
                 </div>
                 <div class="ControlColumn">
-                    <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+                    <button type="button" name="refresh-button" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+                        <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset">
+                    </button>
                 </div>
                 <div class="ControlColumn">
-                    <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                    <button type="button" name="like-button">
+                        <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="ModalOverlay">
+                <!-- Currently visibility is set to hidden in css-->
+            </div>
+            <div class="alert">
+                <!-- Currently visibility is set to hidden in css-->
+                <h1>Alert!</h1>
+                <div class="alertmsg">
+                    <p>This is a sample alert that will be generated when the user attempts to refresh or when the user has a match. Thankyou</p>
+                </div>
+                <div class="Buttons">
+                    <div class="ControlColumn">
+                        <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+                    </div>
+                    <div class="ControlColumn">
+                        <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+                    </div>
+                    <div class="ControlColumn">
+                        <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
