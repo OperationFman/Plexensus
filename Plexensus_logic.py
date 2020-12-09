@@ -5,6 +5,7 @@ DBpassword = 'plexpass'
 moviespath = 'C:/Users/frank/Documents/GoogleDrive/Dev/Plexensus/SampleMovies'
 
 import mysql.connector
+import random
 
 def headerrequest() -> dict:
     headers = {
@@ -33,16 +34,35 @@ class UseDatabase:
         self.cursor.close()
         self.conn.close()
     
+def total_db_records() -> int:
+    """Queries the db and gets the total number of records (rows)"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """select count(*) from moviedata"""
+        cursor.execute(_SQL)
+        contents = cursor.fetchone()
+        return contents[0]
 
 def fresh_data() -> dict:
-    """grabs a new movie with its name, year and poster from the DB"""
-    print('Hello World')
-
-#Working on this last, trying to get match to set to 1 or 0 
-def update_database_match(moviename: str, moviematch: int) -> None:
+    """Grabs a new movie with its name, year and poster from the DB"""
+    totalmovies = total_db_records()
+    random_movie = random.randint(1, totalmovies)
     with UseDatabase(dbconfig) as cursor:
-        _SQL = """update moviedata 
-                set moviematch = %s where name = %s
-                values
-                (%s, %s)"""
+        _SQL = """select nomatch from moviedata where id=%s"""
+        cursor.execute(_SQL, (random_movie,))
+        contents = cursor.fetchone()
+        contents = contents[0]
+        if contents == 1:
+            return fresh_data()
+        else:
+            with UseDatabase(dbconfig) as cursor:
+                _SQL = """select name, year, poster from moviedata where id=%s"""
+                cursor.execute(_SQL, (random_movie,))
+                confirmed_contents = cursor.fetchall()
+                return confirmed_contents
+
+
+def update_database_match(moviename: str, moviematch: int) -> None:
+    """Allows the match to change from true/false (1/0) via the movie name"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """update moviedata set moviematch =%s where name =%s"""
         cursor.execute(_SQL, (moviematch, moviename))

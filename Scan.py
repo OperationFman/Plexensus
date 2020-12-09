@@ -42,7 +42,7 @@ def local_scan() -> dict:
 
 
 def load_database() -> list:
-    """Returns a list of every movie name in the database, I'm not sure on the formatting"""
+    """Returns a list of every movie name in the database"""
     with UseDatabase(dbconfig) as cursor:
         _SQL = """select name from moviedata"""
         cursor.execute(_SQL)
@@ -58,6 +58,7 @@ def perform_scan() -> None:
         api_result = api_request(i)
         converted_literal = ast.literal_eval(api_result)
         state = converted_literal['Response']
+        insert_movie(i, 1999, "None", 1)
         if state == 'True':
             searched_movie = converted_literal['Search']
             selected_movie = searched_movie[0]
@@ -65,6 +66,6 @@ def perform_scan() -> None:
             get_year = selected_movie['Year']
             get_poster = selected_movie['Poster']
             insert_movie(get_title, get_year, get_poster, 0)
-        else:
-            insert_movie(i, 1999, "None", 1) #Movie failed the api request so 'nomatch' = true
-
+    print('****Database Scan Complete!****')
+    
+perform_scan()

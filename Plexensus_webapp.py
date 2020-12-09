@@ -7,28 +7,26 @@ app.static_folder = 'static'
 
 @app.route('/')
 def index():
-    starter_movie = 'Shrek 2'
-    starter_year = '2004'
-    starter_poster = 'https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg'
+    starter_movie = 'Tap the Tick or Cross'
+    starter_year = 'To Get Started'
+    starter_poster = 'static/images/welcomeposter.png'
     return render_template('index.html', 
                             the_moviename=starter_movie,
                             the_movieyear=starter_year,
                             the_poster='<img id="movieposter" src=' + starter_poster + ' alt="name">',
-                            the_moviename_form = '<input type="hidden" id="hiddenmoviename" value="' + starter_movie + '">',
-                            the_movieyear_form = '<input type="hidden" id="hiddenmovieyear" value="' + starter_year + '">',
-                            the_movieposter_form = '<input type="hidden" id="hiddenmovieposter" value="' + starter_poster + '">')
+                            the_moviename_form = '<input type="hidden" id="hiddenmoviename" value="Shrek 2">',
+                            the_movieyear_form = '<input type="hidden" id="hiddenmovieyear" value="2004">',
+                            the_movieposter_form = '<input type="hidden" id="hiddenmovieposter" value="https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg">')
 
 @app.route('/_swipe_no', methods=['POST'])
 def swipe_no():
     req = request.get_json()
-    update_database_match(req['name'], 0)
-    #here
-
-    #PLACEHOLDER Send new stuff to front end
+    update_database_match(req['name'], 1)
+    new_data = fresh_data()
     res = make_response(jsonify({
-        "newMovieName": "Narnia",
-        "newMovieYear": "2010",
-        "newMoviePoster": "https://m.media-amazon.com/images/M/MV5BMTc0NTUwMTU5OV5BMl5BanBnXkFtZTcwNjAwNzQzMw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+        "newMovieName": new_data[0][0],
+        "newMovieYear": new_data[0][1],
+        "newMoviePoster": new_data[0][2]
     }), 200)
     return res
 

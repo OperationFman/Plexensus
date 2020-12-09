@@ -27,8 +27,14 @@ function loadMovieData(dataparam) {
     view.changeHiddenName(newMovieName);
     view.changeYear(newMovieYear);
     view.changeHiddenYear(newMovieYear);
-    view.changePoster(newMoviePoster);
     view.changeHiddenPoster(newMoviePoster);
+    if (newMoviePoster == 'N/A') {
+        newMoviePoster = 'static/images/errorposter.png'
+        view.changePoster(newMoviePoster);
+    }
+    else {
+        view.changePoster(newMoviePoster);
+    }
 };
 
 $(function(){
