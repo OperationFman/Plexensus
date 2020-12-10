@@ -56,7 +56,7 @@
             </div>
 
 
-
+            
             <div class="ModalOverlay">
                 <!-- Currently visibility is set to hidden in css-->
             </div>
@@ -64,17 +64,23 @@
                 <!-- Currently visibility is set to hidden in css-->
                 <h1>Alert!</h1>
                 <div class="alertmsg">
-                    <p>This is a sample alert that will be generated when the user attempts to refresh or when the user has a match. Thankyou</p>
+                    <p id="p1">This is a sample alert that will be generated when the user attempts to refresh or when the user has a match. Thankyou</p>
                 </div>
-                <div class="Buttons">
+                <div class="match-reset">
+                    <button type="button" name="modal-refresh" style="visibility: hidden;">
+                            <img src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
+                    </button>
+                </div>
+                <div class="Buttons" id="modal-buttons">
                     <div class="ControlColumn">
-                        <img id="dislike" src="static/images/Xlogo.png" alt="I Don't Like This" style="position: absolute; right: 0%;">
+                        <button type="button" name="no-refresh">
+                            <img id="dislike" src="static/images/Xlogo.png" alt="Take Me Back">
+                        </button>
                     </div>
                     <div class="ControlColumn">
-                        <img id="refresh" src="static/images/Refreshlogo.png" alt="Reset" style="display: block; margin-left: auto; margin-right: auto; padding-top: 30%;">
-                    </div>
-                    <div class="ControlColumn">
-                        <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                        <button type="button" name="yes-refresh">
+                            <img id="like" src="static/images/Ticklogo.png" alt="I Like This" style="margin-left: -2%;">
+                        </button>
                     </div>
                 </div>
             </div>

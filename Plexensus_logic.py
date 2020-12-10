@@ -47,11 +47,14 @@ def fresh_data() -> dict:
     totalmovies = total_db_records()
     random_movie = random.randint(1, totalmovies)
     with UseDatabase(dbconfig) as cursor:
-        _SQL = """select nomatch from moviedata where id=%s"""
+        _SQL = """select nomatch, disliked from moviedata where id=%s"""
         cursor.execute(_SQL, (random_movie,))
         contents = cursor.fetchone()
-        contents = contents[0]
-        if contents == 1:
+        nomatch = contents[0]
+        disliked = contents[1]
+        if nomatch == 1:
+            return fresh_data()
+        elif disliked == 1:
             return fresh_data()
         else:
             with UseDatabase(dbconfig) as cursor:
@@ -66,3 +69,32 @@ def update_database_match(moviename: str, moviematch: int) -> None:
     with UseDatabase(dbconfig) as cursor:
         _SQL = """update moviedata set moviematch =%s where name =%s"""
         cursor.execute(_SQL, (moviematch, moviename))
+
+def update_database_dislike(moviename: str, disliked: int) -> None:
+    """Allows the dislike to change from true/false (1/0) via the movie name"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """update moviedata set disliked =%s where name =%s"""
+        cursor.execute(_SQL, (disliked, moviename))
+
+def reset_matches() -> None:
+    """Resets all matches in the DB to 0 (False)"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """update moviedata set moviematch =0"""
+        cursor.execute(_SQL)
+
+def reset_dislikes() -> None:
+    """Resets all dislikes in the DB to 0 (False)"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """update moviedata set disliked =0"""
+        cursor.execute(_SQL)
+
+def match_check(moviename) -> None:
+    """Returns True if the last movie was already setup to match with, False if not"""
+    with UseDatabase(dbconfig) as cursor:
+        _SQL = """select moviematch from moviedata where name =%s"""
+        cursor.execute(_SQL, (moviename, ))
+        result = cursor.fetchall()
+        if result[0][0] == 1:
+            return True
+        else:
+            return False
