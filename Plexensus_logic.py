@@ -1,11 +1,6 @@
-#Temp Config
-your_rapidapi_key = "f1b94bda20mshfc448b87ed832f1p1a9785jsn76236c066d8d"
-DBusername = 'plexuser'
-DBpassword = 'plexpass'
-moviespath = 'C:/Users/frank/Documents/GoogleDrive/Dev/Plexensus/SampleMovies'
-
 import mysql.connector
 import random
+from Plexensus_config import *
 
 def headerrequest() -> dict:
     headers = {
