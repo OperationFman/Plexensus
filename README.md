@@ -25,4 +25,3 @@ How to install:
 20. Nearly done! Finally shift-rightclick the folder you installed everything into and 'open in powershell'
 21. Paste this 'python Plexensus_webapp.py runserver' and press enter
 22. Follow the prompt to open the app in your browser. If you're on a PC press F12, at the top to the left there's a small square on a big square for mobile mode
-23. As if you did all this lol, good luck
