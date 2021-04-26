@@ -13,9 +13,6 @@ I was constrained by cost so instead of calling the API every time a movie is sh
 It's a little crude, using simple jquery ajax calls and passing data between the front and backend using hidden forms, but it works.
 
 
-It lacks features I've come to need such as automatic deployment (Especially with the db) and Unit tests, but it is a solid concept.
-
-
 
 In the future I plan to deprecate this and rebuild it using React for the frontend, and Java for the backend with Postgres for data storage.
 
