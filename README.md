@@ -17,7 +17,7 @@ In the future I plan to deprecate this and rebuild it using React for the fronte
 
 This is a simple MVP/proof of concept.
 
-![1](https://user-images.githubusercontent.com/42459707/116027794-2079ea80-a699-11eb-9ae1-a021aa0f2f59.PNG)
+![1](https://user-images.githubusercontent.com/42459707/116028535-b19d9100-a69a-11eb-941c-af5608dc7e45.PNG)
 ![2](https://user-images.githubusercontent.com/42459707/116027798-2243ae00-a699-11eb-8239-4deea2ab7f1a.PNG)
 
 Swipe left for 'No' or right for 'Yes'.
