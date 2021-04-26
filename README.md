@@ -6,6 +6,10 @@ When you think Plexensus, think 'Tinder for Netflix' (But for your own personal 
 ## Context
 This was a small app I built using basic Python (flask) and Javascript (jquery) skills.
 
+Movie information is sourced from IMDB using rapid-API found here: https://rapidapi.com/
+
+I was constrained by cost so instead of calling the API every time a movie is shown, IMDB is called once when a new movie is detected and it's data (Name/Year/Image) are stored in the database.
+
 It's a little crude, using simple jquery ajax calls and passing data between the front and backend using hidden forms, but it works.
 
 
@@ -15,7 +19,7 @@ It lacks features I've come to need such as automatic deployment (Especially wit
 
 In the future I plan to deprecate this and rebuild it using React for the frontend, and Java for the backend with Postgres for data storage.
 
-This is a simple MVP/proof of concept.
+This is just a simple MVP/proof of concept.
 
 ![1](https://user-images.githubusercontent.com/42459707/116027794-2079ea80-a699-11eb-9ae1-a021aa0f2f59.PNG)
 ![2](https://user-images.githubusercontent.com/42459707/116027798-2243ae00-a699-11eb-8239-4deea2ab7f1a.PNG)
