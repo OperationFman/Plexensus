@@ -1,7 +1,49 @@
-When you think Plexensus, think 'Tinder for Netflix' (But for your own personal movie files)
-This was a small app I built using basic Python and Javascript skills.
+## Tinder for Movies
+When you think Plexensus, think 'Tinder for Netflix' (But for your own personal movie files).
 
-How to install:
+
+
+## Context
+This was a small app I built using basic Python (flask) and Javascript (jquery) skills.
+
+It's a little crude, using simple jquery ajax calls and passing data between the front and backend using hidden forms, but it works.
+
+
+It lacks features I've come to need such as automatic deployment (Especially with the db) and Unit tests, but it is a solid concept.
+
+
+
+In the future I plan to deprecate this and rebuild it using React for the frontend, and Java for the backend with Postgres for data storage.
+
+This is a simple MVP/proof of concept.
+
+![1](https://user-images.githubusercontent.com/42459707/116027794-2079ea80-a699-11eb-9ae1-a021aa0f2f59.PNG)
+![2](https://user-images.githubusercontent.com/42459707/116027798-2243ae00-a699-11eb-8239-4deea2ab7f1a.PNG)
+
+Swipe left for 'No' or right for 'Yes'.
+
+Selecting No prevents the movie appearing again until after a refresh.
+
+
+
+![3](https://user-images.githubusercontent.com/42459707/116027799-22dc4480-a699-11eb-871f-b464cd90e07f.PNG)
+
+Tap the refresh button to wipe all selections and reload the database, scanning for any new movies added to the list.
+
+
+
+![4](https://user-images.githubusercontent.com/42459707/116027801-22dc4480-a699-11eb-948b-cf9e4dd8568d.PNG)
+
+When a movie is 'Yesed'(?) twice it will say you have a match.
+
+
+
+
+## Installation
+Note: This is incredibly clunky and outdated, in the future when this is rebuilt this will be automated entirely.
+
+
+
 1. Clone or download this repo somewhere you plan to keep the files on your machine
 2. Ensure you have Python 3 and pip installed, guide here: https://phoenixnap.com/kb/install-pip-windows
 3. Install the following python packages using Pip: flask, ast and numpy. 
