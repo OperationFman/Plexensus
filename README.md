@@ -34,7 +34,7 @@ Tap the refresh button to wipe all selections and reload the database, scanning 
 
 ![4](https://user-images.githubusercontent.com/42459707/116027801-22dc4480-a699-11eb-948b-cf9e4dd8568d.PNG)
 
-When a movie is 'Yesed'(?) twice it will say you have a match.
+When a movie is 'Yesed'(?) twice, it will say you have a match.
 
 
 
